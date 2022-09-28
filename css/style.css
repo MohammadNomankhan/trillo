@@ -27,7 +27,9 @@ Grey dark 3: #999
   --color-grey-dark-2: #777;
   --color-grey-dark-3: #999;
   --color-white: #fff;
-  --shadow-dark: 0 2rem 6rem rgba(0,0,0,.3); }
+  --shadow-dark: 0 2rem 6rem rgba(0,0,0,.3);
+  --shadow-light: 0 2rem 5rem rgba(0,0,0,.06);
+  --line: 1px solid var(--color-grey-light-2); }
 
 * {
   padding: 0;
@@ -129,6 +131,207 @@ body {
     border-radius: 50%;
     margin-right: 1rem; }
 
+.side-nav {
+  list-style: none;
+  font-size: 1.4rem;
+  margin-top: 3.5rem; }
+  .side-nav__item {
+    position: relative; }
+    .side-nav__item:not(:last-child) {
+      margin-bottom: .5rem; }
+  .side-nav__item::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 3px;
+    background-color: var(--color-primary);
+    scale: 1 0;
+    transition: scale 0.2s, width 0.4s cubic-bezier(1, 0, 0, 1) 0.2s, background-color 0.1s; }
+  .side-nav__item:hover::before {
+    scale: 1 1;
+    width: 100%; }
+  .side-nav__item:hover::before {
+    background-color: var(--color-primary-light); }
+  .side-nav__link:link, .side-nav__link:visited {
+    color: var(--color-grey-light-1);
+    text-decoration: none;
+    text-transform: uppercase;
+    display: block;
+    padding: 1.5rem 3rem;
+    display: flex;
+    align-items: center;
+    position: relative;
+    z-index: 10; }
+  .side-nav__icon {
+    height: 1.75rem;
+    width: 1.75rem;
+    fill: var(--color-grey-light-1);
+    fill: currentColor;
+    margin-right: 2rem; }
+
+.legal {
+  font-size: 1.2rem;
+  text-align: center;
+  color: var(--color-grey-light-4);
+  padding: 2.5rem; }
+
+.gallery {
+  display: flex; }
+  .gallery__photo {
+    width: 100%;
+    display: block; }
+
+.overview {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: var(--line); }
+  .overview__heading {
+    font-size: 2.25rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 1.5rem 3rem; }
+  .overview__stars {
+    display: flex;
+    margin-right: auto; }
+  .overview__icon-star, .overview__icon-location {
+    height: 1.75rem;
+    width: 1.75rem;
+    fill: var(--color-primary);
+    margin-right: .5rem; }
+  .overview__location {
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center; }
+  .overview__rating {
+    align-self: stretch;
+    color: var(--color-white);
+    background-color: var(--color-primary);
+    margin-left: 3rem;
+    padding: 0 2.25rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; }
+  .overview__rating-avg {
+    font-size: 2.75rem;
+    font-weight: 300;
+    margin-bottom: -3px; }
+  .overview__rating-count {
+    font-size: .8rem;
+    text-transform: uppercase;
+    margin-bottom: -3px; }
+
+.btn-inline {
+  font-size: inherit;
+  border: none;
+  display: inline-block;
+  text-decoration: none;
+  color: var(--color-primary);
+  background-color: transparent;
+  border-bottom: 1px solid currentColor;
+  cursor: pointer;
+  padding-bottom: 2px;
+  transition: all .2s; }
+  .btn-inline:hover {
+    color: var(--color-grey-dark-3); }
+  .btn-inline:focus {
+    animation: pulsate .8s  infinite; }
+
+@keyframes pulsate {
+  0% {
+    scale: 1;
+    box-shadow: 0; }
+  50% {
+    scale: 1.05;
+    box-shadow: 0 1rem 3.5rem rgba(0, 0, 0, 0.3); }
+  100% {
+    scale: 1;
+    box-shadow: 0; } }
+
+.paragraph:not(last-type) {
+  margin-bottom: 3rem; }
+
+.list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 3rem 0;
+  margin: 3rem 0;
+  border-top: var(--line);
+  border-bottom: var(--line); }
+  .list-item {
+    width: 50%;
+    margin-bottom: .7rem; }
+  .list-item::before {
+    content: "";
+    display: inline-block;
+    height: 1rem;
+    width: 1rem;
+    margin-right: .7rem;
+    background-color: var(--color-primary);
+    mask-image: url(../img/chevron-thin-right.svg);
+    mask-size: cover; }
+
+.recommend {
+  font-size: 1.3rem;
+  color: var(--color-grey-dark-3);
+  display: flex;
+  align-items: center; }
+  .recommend__count {
+    margin-right: auto; }
+  .recommend__friends {
+    display: flex; }
+  .recommend__photo {
+    height: 4rem;
+    width: 4rem;
+    border-radius: 50%;
+    box-sizing: content-box;
+    border: 3px solid var(--color-white);
+    transform: scale(1);
+    transition: all .3s; }
+    .recommend__photo:not(:last-child) {
+      margin-right: -2rem; }
+    .recommend__photo:hover {
+      z-index: 100;
+      transform: scale(1.2);
+      border: 0.5px solid var(--color-white); }
+  .recommend__photo:hover .recommend__photo:not(:hover) {
+    transform: scale(0.9); }
+
+.review {
+  background-color: var(--color-white);
+  box-shadow: var(--shadow-white);
+  margin-bottom: 3.5rem;
+  padding: 3rem; }
+  .review__text {
+    margin-bottom: 2rem; }
+  .review__user {
+    display: flex;
+    align-items: center; }
+  .review__user-photo {
+    height: 4rem;
+    width: 4rem;
+    border-radius: 50%;
+    margin-right: 1.5rem; }
+  .review__user-box {
+    margin-right: auto; }
+  .review__user-name {
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: .4rem; }
+  .review__user-date {
+    font-size: 1.1rem;
+    color: var(--color-grey-dark-3); }
+  .review__rating {
+    font-size: 2.25rem;
+    font-weight: 300;
+    color: var(--color-primary); }
+
 /*
 
 while (dev)
@@ -136,6 +339,7 @@ while (dev)
 
 img
 	for images you just put height and width adjusts auto.
+	always make fluid heights, so that they are responsive.
 	then by br = 50% it forms a circle
 
 svg 
@@ -145,6 +349,25 @@ input fields
 	typograpy -> ff + fs + color all should be set to inherit cause default styles don't inherit. It should be explicit.
 	appearance -> bc + br + width and height(if there) in % mostly 
 	box -> pad + bor + mar
+	placeholder hack, valid hack can be used for cool effects 
+
+btn
+
+Super Super trick on aliging items we want
+	flex + margin auto
+	So we have 4 items and we need 2 -2 pair of both dir. 
+	We can just make margin-right auto on 2nd element, so that it will push items 3 and 4 at end
+
+Jonas always first adjusts layout then goes on to styling components
+he uses dummy heights and paddins to make layouts (tepmporaray)
+
+mistake
+	did a mistake of adding margin right to button which would make it non reusable
+
+how to do it?
+	how would you adjust the width of multiple containers?
+	you need to generally use flex and for 2 blocks (eg), make one  0 0 whatever% other 1 like in detais
+	of trillo
 
 
 */
@@ -158,6 +381,7 @@ input fields
 .header {
   height: 7rem;
   background-color: var(--color-white);
+  border-bottom: var(--line);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -168,8 +392,30 @@ input fields
 
 .sidebar {
   flex: 0 0 18%;
-  background-color: var(--color-grey-dark-1); }
+  background-color: var(--color-grey-dark-1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 2rem 0; }
 
 .hotel-view {
   background-color: var(--color-white);
+  flex: 1; }
+
+.detail {
+  font-size: 1.4rem;
+  display: flex;
+  padding: 4.5rem;
+  background-color: var(--color-grey-light-1);
+  border-bottom: var(--line); }
+
+.description {
+  font-size: 1.4rem;
+  background-color: var(--color-white);
+  box-shadow: var(--shadow-light);
+  padding: 3rem;
+  flex: 0 0 60%;
+  margin-right: 4.5rem; }
+
+.user-review {
   flex: 1; }
