@@ -58,7 +58,7 @@
             <div class="content">
                 <nav class="sidebar">
                     <ul class="side-nav">
-                        <li class="side-nav__item">
+                        <li class="side-nav__item side-nav__item-active">
                             <a href="#" class="side-nav__link">
                                 <svg class="side-nav__icon">
                                     <use xlink:href="img/sprite.svg#icon-home"></use>
@@ -184,9 +184,9 @@
                         </div>
                         <div class="user-review">
                             <figure class="review">
-                                <blackquote class="review__text">
+                                <blockquote class="review__text">
                                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga doloremque architecto dicta animi, totam, itaque officia ex.
-                                </blackquote>
+                                </blockquote>
                                 <figcaption class="review__user">
                                     <img src="img/user-1.jpg" alt="user 1" class="review__user-photo">
                                     <div class="review__user-box">
@@ -199,9 +199,9 @@
 
 
                             <figure class="review">
-                                <blackquote class="review__text">
+                                <blockquote class="review__text">
                                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga doloremque architecto dicta animi.
-                                </blackquote>
+                                </blockquote>
                                 <figcaption class="review__user">
                                     <img src="img/user-2.jpg" alt="user 1" class="review__user-photo">
                                     <div class="review__user-box">
@@ -211,7 +211,21 @@
                                     <div class="review__rating">9.3</div>
                                 </figcaption>
                             </figure>
+                            <button class="btn-inline u-center">Show all <span>&rarr;</span> </button>
                         </div>
+                    </div>
+                    <div class="cta">
+                        <h2 class="cta__heading">
+                            Good news! We have 4 free rooms for your selected dates!
+                        </h2>
+
+                        <button class="btn">
+                            
+                            <span class="btn__visible">Book Now</span>
+                            <span class="btn__invisible">Only 4 rooms left</span>
+
+
+                        </button>
                     </div>
                 </main>
             </div>
